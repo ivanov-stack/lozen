@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Средиземноморски стил къщи – Lozen Gardens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Basic card and gallery styling */
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+.cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.card { flex: 1 1 250px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fff; cursor: pointer; transition: transform 0.3s; }
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; display: block; }
+.card-body { padding: 15px; }
+.card-body h3 { margin: 0 0 10px; font-size: 1.2rem; }
+.card-body p { font-size: 0.95rem; margin-bottom: 10px; }
+.card-body a.text-link { color: #0077cc; text-decoration: none; font-weight: 500; }
+.card-body a.text-link:hover { text-decoration: underline; }
+@media(max-width:768px) { .cards { flex-direction: column; } }
+
+/* Modal gallery styles */
+#galleryModal { display:none; position:fixed; z-index:999; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9); }
+#galleryModal img { margin:auto; display:block; max-width:90%; max-height:80vh; }
+#galleryModal .close { position:absolute; top:20px; right:35px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer; }
+#galleryModal .prev, #galleryModal .next { position:absolute; top:50%; color:#fff; font-size:40px; font-weight:bold; cursor:pointer; user-select:none; padding:10px; transform:translateY(-50%); }
+#galleryModal .prev { left:10px; }
+#galleryModal .next { right:10px; }
+#galleryCaption { text-align:center; color:#fff; padding:10px 0; font-size:1rem; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html">Lozen Gardens</a>
+    <nav>
+      <a href="index.html#about" data-bg="За проекта" data-en="About">За проекта</a>
+      <a href="index.html#location" data-bg="Локация" data-en="Location">Локация</a>
+      <a href="index.html#properties" data-bg="Имоти" data-en="Properties">Имоти</a>
+      <a href="index.html#gallery" data-bg="Галерия" data-en="Gallery">Галерия</a>
+      <a href="index.html#contact" data-bg="Контакти" data-en="Contact">Контакти</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow center" data-bg="Средиземноморски стил къщи" data-en="Mediterranean Homes">Средиземноморски стил къщи</p>
+    <h2 class="center" data-bg="5 вида къщи за уникален живот сред природа и комфорт" data-en="5 house types for unique life in nature and comfort">5 вида къщи за уникален живот сред природа и комфорт</h2>
+    
+    <div class="cards">
+      <article class="card">
+        <img class="gallery-item" src="images/med_1.png" alt="Медитеранска вила тип А">
+        <div class="card-body">
+          <h3 data-bg="Вила тип А" data-en="Villa Type A">Вила тип А</h3>
+          <p data-bg="Просторна къща с три спални, голяма веранда и градина." data-en="Spacious home with 3 bedrooms, large terrace and garden.">Просторна къща с три спални, голяма веранда и градина.</p>
+          <a class="text-link" href="#" data-bg="Виж повече →" data-en="See more →">Виж повече →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="gallery-item" src="images/med_2.png" alt="Медитеранска вила тип B">
+        <div class="card-body">
+          <h3 data-bg="Вила тип B" data-en="Villa Type B">Вила тип B</h3>
+          <p data-bg="Двуетажна къща с панорамни прозорци и уютна вътрешна тераса." data-en="Two-story house with panoramic windows and cozy inner terrace.">Двуетажна къща с панорамни прозорци и уютна вътрешна тераса.</p>
+          <a class="text-link" href="#" data-bg="Виж повече →" data-en="See more →">Виж повече →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="gallery-item" src="images/med_3.png" alt="Медитеранска вила тип C">
+        <div class="card-body">
+          <h3 data-bg="Вила тип C" data-en="Villa Type C">Вила тип C</h3>
+          <p data-bg="Елегантна едноетажна къща с вътрешен двор и плувен басейн." data-en="Elegant single-story house with courtyard and swimming pool.">Елегантна едноетажна къща с вътрешен двор и плувен басейн.</p>
+          <a class="text-link" href="#" data-bg="Виж повече →" data-en="See more →">Виж повече →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="gallery-item" src="images/med_4.png" alt="Медитеранска вила тип D">
+        <div class="card-body">
+          <h3 data-bg="Вила тип D" data-en="Villa Type D">Вила тип D</h3>
+          <p data-bg="Модерен дизайн с три спални, просторен хол и градина с медитерански растения." data-en="Modern design with 3 bedrooms, spacious living room and Mediterranean garden.">Модерен дизайн с три спални, просторен хол и градина с медитерански растения.</p>
+          <a class="text-link" href="#" data-bg="Виж повече →" data-en="See more →">Виж повече →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="gallery-item" src="images/med_5.png" alt="Медитеранска вила тип E">
+        <div class="card-body">
+          <h3 data-bg="Вила тип E" data-en="Villa Type E">Вила тип E</h3>
+          <p data-bg="Луксозна двуетажна къща с голяма тераса, открит кухненски кът и градина." data-en="Luxurious two-story house with large terrace, open kitchen and garden.">Луксозна двуетажна къща с голяма тераса, открит кухненски кът и градина.</p>
+          <a class="text-link" href="#" data-bg="Виж повече →" data-en="See more →">Виж повече →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for gallery -->
+<div id="galleryModal">
+  <span class="close">&times;</span>
+  <img id="modalImage">
+  <div id="galleryCaption"></div>
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+</div>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <p>© 2026 Lozen Gardens</p>
+    <p>Luxury living in Lozen, Sofia</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Gallery modal JS (works with existing script.js for language)
+const modal = document.getElementById("galleryModal");
+const modalImg = document.getElementById("modalImage");
+const captionText = document.getElementById("galleryCaption");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const closeBtn = modal.querySelector(".close");
+const prevBtn = modal.querySelector(".prev");
+const nextBtn = modal.querySelector(".next");
+let currentIndex = 0;
+
+function openModal(index) {
+  currentIndex = index;
+  modal.style.display = "block";
+  modalImg.src = galleryItems[currentIndex].src;
+  captionText.innerHTML = galleryItems[currentIndex].alt || "";
+}
+
+function showImage(index) {
+  currentIndex = (index + galleryItems.length) % galleryItems.length;
+  modalImg.src = galleryItems[currentIndex].src;
+  captionText.innerHTML = galleryItems[currentIndex].alt || "";
+}
+
+galleryItems.forEach((img, i) => {
+  img.addEventListener("click", () => openModal(i));
+});
+
+closeBtn.onclick = () => { modal.style.display = "none"; };
+prevBtn.onclick = () => showImage(currentIndex - 1);
+nextBtn.onclick = () => showImage(currentIndex + 1);
+
+// Swipe support
+let startX = 0;
+modalImg.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+modalImg.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) showImage(currentIndex + 1);
+  if(endX - startX > 50) showImage(currentIndex - 1);
+});
+window.onclick = e => { if(e.target === modal) modal.style.display = "none"; };
+</script>
+
+</body>
+</html>
